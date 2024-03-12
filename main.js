@@ -9,7 +9,9 @@ function start() {
     object_detection = ml5.objectDetector('cocossd', modelLoaded);
     document.getElementById('status').innerHTML = 'Status : Detecting Objects';
 }
-
+function preload() {
+    alert_S = loadSound("a.mp3");
+}
 function draw() {
     image(video, 0, 0, 600, 500);
     if (status != '') {
@@ -34,7 +36,7 @@ function draw() {
             }
         }
         if (detected != 'true') {
-            play('a.mp3');
+            alert_S.play();
             document.getElementById('baby_detected').innerHTML = 'Baby : Not Detected ';
         }
     }
